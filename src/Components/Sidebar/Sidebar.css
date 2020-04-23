@@ -1,0 +1,11 @@
+aside{
+    /* width: 30%; */
+    height: 750px;
+    margin-top: 50px;
+    position: absolute;
+    box-shadow: 5px 0px 3px grey;;
+    z-index: 1;
+    background: #61dafb;
+    overflow: hidden;
+    transition: all 300ms;
+}

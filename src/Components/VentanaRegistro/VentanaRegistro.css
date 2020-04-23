@@ -1,0 +1,93 @@
+.divRegistroContenedor{
+    width: 100%;
+    height: 850px;
+    color: black;
+    margin-top: -50px;
+    position: absolute;
+    margin-top: -850px;
+    z-index: 2;
+    background: rgba(0, 0, 0, .4);
+}
+
+.divRegistroContendorCentro{
+    width: 50%;
+    height: 650px;
+    background: white;
+    margin-top: 10em;
+    border-radius: 5px;
+    margin-left: 25%;
+    /* float: left; */
+}
+
+.divRegistroTitulo{
+    width: 90%;
+    height: 50px;
+    /* background: red; */
+    margin-top: 10px;
+    float: left;
+}
+
+.divRegistroTitulo h2{
+    text-align: center;
+    margin-top: 10px;
+    font-size: 35px;
+}
+
+.divRegistroBotonAtras{
+    width: 7%;
+    height: 50px;
+    margin-top: 10px;
+    background: black;
+    border-radius: 50px;
+    border: none;
+    overflow: hidden;
+    float: left;
+
+}
+
+.divRegistroBotonAtras input[type='button']{
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    font-size: 20px;
+    background: #282c34;
+    color: white;
+    cursor: pointer;
+}
+
+.divRegistroBotonAtras input[type='button']:hover{
+    background: #575D5E;
+}
+
+.divRegistroFormulario{
+    width: 94%;
+    height: 550px;
+    margin-left: 3%;
+    /* background: blue; */
+    margin-top: 20px;
+    float: left;
+}
+
+.divRegistroFormulario input{
+    width: 90%;
+    margin-left: 5%;
+    height: 50px;
+    border-radius: 5px;
+    font-size: 20px;
+    border: 1px solid grey;
+    margin-top: 10px;
+}
+
+.divRegistroFormulario input[type='submit']{
+    width: 80%;
+    margin-left: 10%;
+    background: #61dafb;
+    cursor: pointer;
+    color: white;
+    font-size: 25px;
+}
+
+.divRegistroFormulario input[type='submit']:hover{
+    background: #40D5E4;
+}
