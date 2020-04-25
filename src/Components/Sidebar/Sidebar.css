@@ -1,7 +1,7 @@
 aside{
     /* width: 30%; */
-    height: 750px;
-    margin-top: 50px;
+    height: 800px;
+    margin-top: -800px;
     position: absolute;
     box-shadow: 5px 0px 3px grey;;
     z-index: 1;

@@ -75,7 +75,7 @@ class VentanaRegistro extends React.Component{
                         nombre:this.state.nombre,
                         apellido:this.state.apellido,
                         fecha:this.state.fecha,
-                        correo:this.state.fecha,
+                        correo:this.state.correo,
                         clave:this.state.clave,
                         foto:ruta
                     }

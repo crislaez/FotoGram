@@ -13,6 +13,8 @@ class App extends React.Component{
     _VLogin = false;
     _VRegistro = true;
     _VSideBar = false;
+    _BPerfiles = false;
+    _BLogin = true;
 
     constructor(props){
         super(props);
@@ -60,12 +62,45 @@ class App extends React.Component{
 
     //esta fucion hace aparecer el sidebar
     functionSidebar = () => {
-        if(this._VSideBar){
-            this.setState({ventanaSidebar:false});
-            this._VSideBar = false;
-        }else{
+        if(!this._VSideBar){
             this.setState({ventanaSidebar:true});
             this._VSideBar = true;
+        }else{
+            this.setState({ventanaSidebar:false});
+            this._VSideBar = false;
+        }
+    }
+
+    //funcion para el boton de perfiles que se mostrara cuando estemos logueados
+    funcionBotonPerfiles = () => {
+        if(!this._BPerfiles){
+            this.setState({ventanaPerfiles:true});
+            this._BPerfiles = true;
+        }else{
+            this.setState({ventanaPerfiles:false});
+            this._BPerfiles = false;
+        }
+    }
+    
+    //funcion para que el boton login del nab desaparezca, y aparezca el boton registo
+    funcionBotonLogin = () => {
+        if(this._BLogin){
+            this.setState({botonLogin:false});
+            this._BLogin = false;
+            console.log(this._BLogin);
+        }else{
+            //pedimos la confirmacion de que quiere cerrar sesion
+            let confirmacion = window.confirm('Estas seguro qeu quieres cerrar sesion?');
+            if(confirmacion){
+                //borrarmos las varaibles del usuario dle localStorage
+                localStorage.removeItem('indiceUsuario');
+                localStorage.removeItem('usuario');
+                //llamamos a la funcion de arriva para qeu desaparezca el boton de perfil en el nav
+                this.funcionBotonPerfiles();
+                //cambiamos el estado para qeu aparezca el boton loguin en el nav
+                this.setState({botonLogin:true});
+                this._BLogin = true;
+            }            
         }
     }
 
@@ -79,15 +114,20 @@ class App extends React.Component{
                 handleClick={this.handleClick} 
                 funcionLogin={this.funcionLogin} 
                 funcionRegistro={this.funcionRegistro} 
-                functionSidebar={this.functionSidebar}></Nav>
+                functionSidebar={this.functionSidebar}
+                funcionBotonLogin={this.funcionBotonLogin}
+                ></Nav>
 
                 <Section 
-                ventanaSidebar={this,this.state.ventanaSidebar}
+                ventanaSidebar={this.state.ventanaSidebar}
                 ventanasArticulos={this.state.ventanasArticulos} 
                 ventanaLoing={this.state.ventanaLoing} 
                 ventanaRegistro={this.state.ventanaRegistro} 
                 funcionLogin={this.funcionLogin} 
-                funcionRegistro={this.funcionRegistro}></Section>
+                funcionRegistro={this.funcionRegistro}
+                funcionBotonPerfiles={this.funcionBotonPerfiles}
+                funcionBotonLogin={this.funcionBotonLogin}
+                ></Section>
                 <Footer></Footer>
             </div>
         )

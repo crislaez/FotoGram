@@ -28,9 +28,9 @@ class Nav extends React.Component{
                 {
                     this.props.botonLogin
                     ?
-                    <input id='bLoguear' className='bDerecha' type='button' value='LOGUEAR' onClick={this.props.funcionLogin}></input> 
+                    <input id='bLoguear' className='bDerecha' type='button' value='LOGIN' onClick={this.props.funcionLogin}></input> 
                     :
-                    <input id='bCerrarSesion' className='bDerecha' type='button' value='CERRAR SESION' onClick={this.props.handleClick}></input> 
+                    <input id='bCerrarSesion' className='bDerecha' type='button' value='CERRAR SESION' onClick={this.props.funcionBotonLogin}></input> 
                 }
                                
             </nav>

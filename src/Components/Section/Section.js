@@ -39,7 +39,7 @@ class Section extends React.Component{
             {
                 this.props.ventanaLoing
                 ?
-                <VentanaLogin funcionLogin={this.props.funcionLogin}></VentanaLogin>
+                <VentanaLogin funcionLogin={this.props.funcionLogin} funcionBotonPerfiles={this.props.funcionBotonPerfiles} funcionBotonLogin={this.props.funcionBotonLogin}></VentanaLogin>
                 :
                 <div></div>
             }

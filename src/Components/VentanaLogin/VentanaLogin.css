@@ -55,10 +55,43 @@
     cursor: pointer;
 }
 
+
 .divLoginBotonAtras input[type='button']:hover{
     background: #575D5E;
 }
 
 .divLoginFormulario{
+    width: 90%;
+    height: 370px;
+    margin-left: 5%;
+    margin-top: 2em;
+    /* background: blue; */
+    float: left;
+}
 
+.divLoginFormulario input{
+    width: 90%;
+    height: 50px;
+    margin-left: 5%;
+    border-radius: 5px;
+    border: 1px solid grey;
+    font-size: 20px;
+    margin-top: 2em;
+}
+
+.divLoginFormulario input[type='submit']{
+    width: 80%;
+    height: 50px;
+    margin-left: 10%;
+    margin-top: 2.2em;
+    border-radius: 5px;
+    border: none;
+    background: #61dafb;
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.divLoginFormulario input[type='submit']:hover{
+    background: #40D5E4;
 }
