@@ -8,6 +8,7 @@ import ArticuloVerTodo from '../ArticuloVerTodo/ArticuloVerTodo'
 import VentanaLogin from '../VentanaLogin/VentanaLogin'
 import VentanaRegistro from '../VentanaRegistro/VentanaRegistro'
 import Sidebar from '../Sidebar/Sidebar'
+import Perfil from '../Perfil/Perfil'
 //this.props.ventanasArticulos == 'bMenu'
 
 class Section extends React.Component{
@@ -23,7 +24,7 @@ class Section extends React.Component{
                 :
                 this.props.ventanasArticulos == 'bPerfil'
                 ?
-                <div></div>
+                <Perfil></Perfil>
                 :
                 <div></div>
             }

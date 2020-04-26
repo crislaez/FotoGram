@@ -100,6 +100,8 @@ class App extends React.Component{
                 //cambiamos el estado para qeu aparezca el boton loguin en el nav
                 this.setState({botonLogin:true});
                 this._BLogin = true;
+                //mostramos la ventana Ver todo
+                this.setState({ventanasArticulos:'bVerTodo'})
             }            
         }
     }
