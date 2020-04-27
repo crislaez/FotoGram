@@ -69,18 +69,17 @@ class VentanaRegistro extends React.Component{
             storage.put(this.state.foto)
             .then(res => {
                 storage.getDownloadURL().then(ruta => {
-
                     let datos = 
-                    {
-                        nombre:this.state.nombre,
-                        apellido:this.state.apellido,
-                        fecha:this.state.fecha,
-                        correo:this.state.correo,
-                        clave:this.state.clave,
-                        foto:ruta
-                    }
+                        {
+                            nombre:this.state.nombre,
+                            apellido:this.state.apellido,
+                            fecha:this.state.fecha,
+                            correo:this.state.correo,
+                            clave:this.state.clave,
+                            foto:ruta
+                        }
                 
-                firebase.database().ref(`${this.state.indiceUsuario}`).set(datos);
+                    firebase.database().ref(`${this.state.indiceUsuario}`).set(datos);
                 })
             })            
             alert('Ingresado correctamente');

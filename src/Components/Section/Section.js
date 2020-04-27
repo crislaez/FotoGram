@@ -13,6 +13,25 @@ import Perfil from '../Perfil/Perfil'
 
 class Section extends React.Component{
 
+    constructor(props){
+        super(props)
+    }
+
+    componentDidMount(){
+            //si esisten en el localStorage esas variableres     
+            if(localStorage.getItem('indiceUsuario') && localStorage.getItem('usuario')){
+                //aparecera el boton de perfiles
+                const funcionBotonPerfiles = this.props.funcionBotonPerfiles;
+                funcionBotonPerfiles();
+                //desaparecera el boton loguin y aparecera el boton cerrar sesion
+                const funcionBotonLogin = this.props.funcionBotonLogin;
+                funcionBotonLogin();
+                //y cerramos la ventana de registro
+                const cerrarVentanaRegistro = this.props.cerrarVentanaRegistro;
+                cerrarVentanaRegistro();
+            }    
+    }
+
     render(){
         return(
             <section>   

@@ -5,22 +5,68 @@
     background: white;
 }
 
-.divTituloPerfil{
+.divBotonSubirFoto{
+    width: 10%;
+    height: 70px;
+    margin-left: 27%;
+    float: left;
+}
+
+.divBotonSubirFoto input{
     width: 100%;
-    height: 50px;
+    height: 40px;
+    border-radius: 5px;
+    margin-top: 15px;
+    background: #61dafb;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.divBotonSubirFoto input:hover{
+    background: #40D5E4;
+}
+
+.divTituloUsuario{
+    width: 100%;
+    height: 75px;
+    /* background: blue; */
     box-shadow: 3px 0px 3px grey;
     float: left;
 }
 
-.divTituloPerfil h2{
+.divUsuario{
+    width: 22%;
+    height: 70px;    
+    /* background: red; */
+    float: left;
+}
+
+.divUsuario h3{
     text-align: center;
     font-size: 30px;
-    margin-top: 10px;
+    margin-top: 15px;
+}
+
+.divFotoUsuario{
+    width: 5%;
+    height: 70px;
+    border-radius: 50px;
+    overflow: hidden;
+    border: 2px solid grey;
+    /* background: blue; */
+    float: left;
+}
+
+.divFotoUsuario img{
+    width: 100%;
+    height: 70px;
 }
 
 .divContenedorPerfil{
     width: 100%;
-    height: 750px;
-    background: grey;
+    height: 725px;
+    overflow-y: scroll;
+    /* background: grey; */
     float: left;
 }

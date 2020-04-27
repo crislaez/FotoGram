@@ -60,6 +60,11 @@ class App extends React.Component{
         }
     }
 
+    cerrarVentanaRegistro = () => {
+        this.setState({ventanaRegistro:false});
+        this._VRegistro = false;
+    }
+
     //esta fucion hace aparecer el sidebar
     functionSidebar = () => {
         if(!this._VSideBar){
@@ -129,6 +134,7 @@ class App extends React.Component{
                 funcionRegistro={this.funcionRegistro}
                 funcionBotonPerfiles={this.funcionBotonPerfiles}
                 funcionBotonLogin={this.funcionBotonLogin}
+                cerrarVentanaRegistro={this.cerrarVentanaRegistro}
                 ></Section>
                 <Footer></Footer>
             </div>
