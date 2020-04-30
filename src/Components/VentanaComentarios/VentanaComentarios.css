@@ -1,0 +1,154 @@
+.articleComentadios{
+    width: 100%;
+    min-height: 800px;
+    /* z-index: 1; */
+    /* background: blueviolet; */
+}
+
+.divTituloComentarios{
+    width: 100%;
+    height: 50px;
+    box-shadow: 3px 0px 3px grey;
+    float: left;
+}
+
+.divTituloComentarios h2{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.divContenedorComentarios{
+    width: 100%;
+    height: 750px;
+    overflow-y: scroll;
+    float: left;
+}
+
+.divBotonAtras{
+    width: 70%;
+    height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 15%;
+    float: left;
+}
+
+.divBotonAtras input{   
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    background: #282c34;
+    color: white;
+    font-size: 25px;
+    border:none;
+    border-radius: 5px;
+}
+
+.divBotonAtras input:hover{
+    background: #575D5E;
+}
+
+.divFotoComentarios{
+    width: 70%;
+    height: 500px;
+    margin-left: 15%;
+    border-radius: 5px;
+    overflow: hidden;
+    float: left;
+}
+
+.divFotoComentarios img{
+    width: 100%;
+    height: 500px;
+}
+
+.divUsuarioComentarios{
+    width: 70%;
+    height: 70px;
+    margin-left: 15%;
+    margin-top: 10px;
+    /* background: white; */
+    float: left;
+}
+
+.divUsuarioComentarios h3{
+    font-size: 30px;
+}
+
+.divUsuarioComentarios h3 {
+    text-align: center;
+}
+
+.divUsuarioComentarios p{
+    text-align: center;
+}
+
+
+.divCajaComentarios{
+    width: 70%;
+    min-height: 100px;
+    margin-left: 15%;
+    margin-top: 20px;
+    background: white;
+    border-radius: 5px;
+    float: left;
+}
+
+.formComentario{
+    width: 70%;
+    height: 170px;
+    margin-left: 15%;
+    margin-top: 10px;
+    background: white;
+    box-shadow: 3px 3px 3px grey;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    float: left;
+}
+
+.formComentario input[type='text']{
+    width: 80%;
+    height: 50px;
+    border: 1px solid grey;
+    margin-left: 10%;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.formComentario input[type='submit']{
+    width: 70%;
+    height: 50px;
+    margin-left: 15%;
+    border-radius: 5px;
+    background: #61dafb;
+    border: none;
+    margin-top: 2em;
+    cursor: pointer;
+    color: white;
+}
+
+.formComentario input[type='submit']:hover{
+    background: #21C4F2;
+}
+
+.divComentario{
+    width: 90%;
+    height: 80px;
+    margin-left: 5%;
+    margin-top: 5px;
+    border-radius: 5px;
+    background: #EAEDEE;
+    float: left;
+}
+
+.p1{
+    color: #4BACD7;    
+    margin-top: 10px;
+    margin-left: 2%;
+}
+
+.p2{
+    margin-top: 10px;
+    margin-left: 2%;
+}

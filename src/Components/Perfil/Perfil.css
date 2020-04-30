@@ -36,7 +36,7 @@
 }
 
 .divUsuario{
-    width: 22%;
+    width: 27%;
     height: 70px;    
     /* background: red; */
     float: left;
@@ -136,4 +136,12 @@
 
 .divBotonBorrar input:hover{
     background: #40D5E4;
+}
+
+.divVacio{
+    width: 80%;
+    height: 400px;
+    margin-left: 10%;
+    background: yellowgreen;
+    float: left;
 }

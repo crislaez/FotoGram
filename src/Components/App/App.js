@@ -15,6 +15,7 @@ class App extends React.Component{
     _VSideBar = false;
     _BPerfiles = false;
     _BLogin = true;
+    _VComentarios = false;
 
     constructor(props){
         super(props);
@@ -25,7 +26,8 @@ class App extends React.Component{
                 ventanaLoing:false,     //para mostrar o no el componente VentanaLogin
                 ventanaRegistro:true,  //para mostrar o no el componente VentanaRegistro
                 ventanaPerfiles:false,  //para mostrar o no el boton perfil del componente Nav
-                ventanaSidebar:false
+                ventanaSidebar:false,
+                datosParaVentanaComentarios:{}
             };
     }
     
@@ -110,6 +112,34 @@ class App extends React.Component{
         }
     }
 
+    //esta funcion es para cuando pinchemos en uno de los articulos de el compenente ver todo
+    //en el componente section se cargara el componente VentanaComentarios y le pasamos
+    //el objeto de estado con lo que se escogio
+    funcionVentanaComentarios = (event) => {
+        console.log(event.target);
+        
+        
+
+        if(!this._VComentarios){
+            let datos = 
+            {
+                indiceusuario:event.target.dataset.indiceusuario,
+                indiceimagen:event.target.dataset.indiceimagen,
+                foto:event.target.dataset.foto,
+                mensaje:event.target.dataset.mensaje,
+                usuario:event.target.dataset.usuario
+            };
+
+            this.setState({datosParaVentanaComentarios:datos});
+            
+            this.setState({ventanasArticulos:'bComentarios'});
+            this._VComentarios = true;
+        }else{
+            this.setState({ventanasArticulos:'bVerTodo'});
+            this._VComentarios = false;
+        }        
+    }
+
     render(){
         return(
             <div>
@@ -134,6 +164,8 @@ class App extends React.Component{
                 funcionBotonPerfiles={this.funcionBotonPerfiles}
                 funcionBotonLogin={this.funcionBotonLogin}
                 cerrarVentanaRegistro={this.cerrarVentanaRegistro}
+                funcionVentanaComentarios={this.funcionVentanaComentarios}
+                datosParaVentanaComentarios={this.state.datosParaVentanaComentarios}
                 ></Section>
                 <Footer></Footer>
             </div>

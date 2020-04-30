@@ -1,3 +1,5 @@
+'usse strict';
+
 import React from 'react'
 //css
 import './Perfil.css'
@@ -81,7 +83,7 @@ class Perfil extends React.Component{
                 arrayContenido.push(contenido)             
             })
         }
-        
+
         return(
             <article className='articlePerfil'>
                 <div className='divTituloUsuario'>
@@ -126,7 +128,7 @@ class Perfil extends React.Component{
                             )
                         })
                         :
-                        <div>No has subido ninguna foto</div>
+                        <div></div>
                     }
                     
                 </div>

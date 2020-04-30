@@ -4,11 +4,13 @@ import React from 'react'
 import './Section.css'
 
 //components
-import ArticuloVerTodo from '../ArticuloVerTodo/ArticuloVerTodo'
-import VentanaLogin from '../VentanaLogin/VentanaLogin'
-import VentanaRegistro from '../VentanaRegistro/VentanaRegistro'
-import Sidebar from '../Sidebar/Sidebar'
-import Perfil from '../Perfil/Perfil'
+import ArticuloVerTodo from '../ArticuloVerTodo/ArticuloVerTodo';
+import VentanaLogin from '../VentanaLogin/VentanaLogin';
+import VentanaRegistro from '../VentanaRegistro/VentanaRegistro';
+import VentanaComentarios from '../VentanaComentarios/VentanaComentarios';
+import Sidebar from '../Sidebar/Sidebar';
+import Perfil from '../Perfil/Perfil';
+
 //this.props.ventanasArticulos == 'bMenu'
 
 class Section extends React.Component{
@@ -35,11 +37,15 @@ class Section extends React.Component{
             {
                 this.props.ventanasArticulos === 'bVerTodo'
                 ?
-                <ArticuloVerTodo></ArticuloVerTodo>
+                <ArticuloVerTodo funcionVentanaComentarios={this.props.funcionVentanaComentarios}></ArticuloVerTodo>
                 :
                 this.props.ventanasArticulos === 'bPerfil'
                 ?
                 <Perfil></Perfil>
+                :
+                this.props.ventanasArticulos === 'bComentarios'
+                ?
+                <VentanaComentarios datosParaVentanaComentarios={this.props.datosParaVentanaComentarios} funcionVentanaComentarios={this.props.funcionVentanaComentarios}></VentanaComentarios>
                 :
                 <div></div>
             }

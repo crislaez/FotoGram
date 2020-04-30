@@ -11,6 +11,7 @@ nav input[type='button']{
     width: 10%;
     height: 50px;
     background: #61dafb;
+    /* background: gold; */
     border: none;
     color: white;
     cursor: pointer;
@@ -27,13 +28,17 @@ nav button{
 }
 
 nav input[type='button']:hover{
-    background: #40D5E4;
+    background: #21C4F2;
 }
 
 nav button:hover{
-    background: #40D5E4;
+    background: #21C4F2;
 }
 
 .bDerecha{
     float: right;
+}
+
+.bIzquierda{
+    float: left;
 }
