@@ -48,7 +48,7 @@ class VentanaLogin extends React.Component{
             for(let valor in aux){
                 // console.log(aux[valor]);
               
-                if(aux[valor].correo == this.state.corre && aux[valor].clave == this.state.clave){
+                if(aux[valor].correo === this.state.corre && aux[valor].clave === this.state.clave){
                     console.log(aux[valor].correo);
                     console.log(this.state.corre);
                     console.log(aux[valor].clave);

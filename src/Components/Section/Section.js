@@ -13,10 +13,6 @@ import Perfil from '../Perfil/Perfil'
 
 class Section extends React.Component{
 
-    constructor(props){
-        super(props)
-    }
-
     componentDidMount(){
             //si esisten en el localStorage esas variableres     
             if(localStorage.getItem('indiceUsuario') && localStorage.getItem('usuario')){
@@ -37,11 +33,11 @@ class Section extends React.Component{
             <section>   
 
             {
-                this.props.ventanasArticulos == 'bVerTodo'
+                this.props.ventanasArticulos === 'bVerTodo'
                 ?
                 <ArticuloVerTodo></ArticuloVerTodo>
                 :
-                this.props.ventanasArticulos == 'bPerfil'
+                this.props.ventanasArticulos === 'bPerfil'
                 ?
                 <Perfil></Perfil>
                 :

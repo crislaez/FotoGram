@@ -57,7 +57,7 @@ class VentanaRegistro extends React.Component{
         else if(!this.state.clave){
             alert('Rellene la clave correctamente');
         }
-        else if(!this.state.clave2 || this.state.clave2 != this.state.clave){
+        else if(!this.state.clave2 || this.state.clave2 !== this.state.clave){
             alert('Repita la clave correctamente');
         }
         else if(!this.state.foto){

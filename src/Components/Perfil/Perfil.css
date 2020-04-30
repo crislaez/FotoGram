@@ -70,3 +70,70 @@
     /* background: grey; */
     float: left;
 }
+
+.contenedorContenido{
+    width: 29%;
+    height: 400px;    
+    border-radius: 5px;
+    /* border: 1px solid grey; */
+    margin: 10px;
+    margin-left: 3%;
+    box-shadow: 3px 3px 3px grey;
+    transition: all 300ms;
+    background: #F7F7F7;
+    float: left;
+}
+
+.divImage{
+    width: 90%;
+    height: 250px;
+    margin-left: 5%;
+    margin-top: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+
+.divImage img{
+    width: 100%;
+    height: 250px;
+}
+
+.divMensaje{
+    width: 90%;
+    height: 70px;
+    margin-top: 10px;
+    margin-left: 5%;
+    /* background: blue; */
+}
+
+.divMensaje p{
+    text-align: center;
+    font-size: 20px;
+}
+
+.contenedorContenido:hover{
+    transform: scale(1.02,1.02);
+}
+
+.divBotonBorrar{
+    width: 90%;
+    height: 50px;
+    margin-left: 5%;
+    /* background: green; */
+}
+
+.divBotonBorrar input{
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    background: #61dafb;
+    color: white;
+}
+
+.divBotonBorrar input:hover{
+    background: #40D5E4;
+}

@@ -48,12 +48,40 @@ class Perfil extends React.Component{
         }
     }
 
+    handleClickBorrar = (event) => {
+        let confirmacion = window.confirm('Seguro que desea borrar la imagen?');
+
+        if(confirmacion){
+            let indiceUsuario = event.target.parentNode.parentNode.dataset.indiceusuario;
+            let indiceContenido = event.target.parentNode.parentNode.dataset.indicecontenido;
+            firebase.database().ref(`${indiceUsuario}/contenido/${indiceContenido}`).remove();
+            // firebase.database().ref(`${event.target.dataset.indice1}/datos/`).child(`${event.target.dataset.indice2}`).remove();
+        }   
+    }
+
     cerrarVentana = () => {
         this.setState({ventanaFoto:false});
         this._VSubirFoto = false;
     }
 
+
+
     render(){
+        
+        let arrayContenido = [];
+        if(this.state.array.contenido){
+            this.state.array.contenido.forEach((dato,key) => {
+                let contenido = 
+                    {
+                        indicUsuario:localStorage.getItem('indiceUsuario'),
+                        indiceContenido:key,
+                        imagen:dato.imagen,
+                        mensaje:dato.mensaje
+                    };
+                arrayContenido.push(contenido)             
+            })
+        }
+        
         return(
             <article className='articlePerfil'>
                 <div className='divTituloUsuario'>
@@ -65,7 +93,7 @@ class Perfil extends React.Component{
                     </div>
                     
                     <div className='divFotoUsuario'>
-                        <img src={this.state.foto}></img>
+                        <img src={this.state.foto} alt={this.state.foto}></img>
                     </div>
                 </div>  
 
@@ -79,7 +107,28 @@ class Perfil extends React.Component{
                         <div></div>
                     }
 
-
+                    {
+                        arrayContenido
+                        ?
+                        arrayContenido.map((dato, key) => {
+                            return(
+                                <div key={key} className='contenedorContenido' data-indiceusuario={dato.indicUsuario} data-indicecontenido={dato.indiceContenido}>
+                                    <div className='divImage'>
+                                        <img src={dato.imagen} alt={dato.imagen}></img>
+                                    </div>
+                                    <div className='divMensaje'>
+                                        <p>{dato.mensaje}</p>
+                                    </div>
+                                    <div className='divBotonBorrar'>
+                                        <input type='button' value='Borrar' onClick={this.handleClickBorrar}></input>
+                                    </div>
+                                </div>
+                            )
+                        })
+                        :
+                        <div>No has subido ninguna foto</div>
+                    }
+                    
                 </div>
             </article>
         )

@@ -92,7 +92,6 @@ class App extends React.Component{
         if(this._BLogin){
             this.setState({botonLogin:false});
             this._BLogin = false;
-            console.log(this._BLogin);
         }else{
             //pedimos la confirmacion de que quiere cerrar sesion
             let confirmacion = window.confirm('Estas seguro qeu quieres cerrar sesion?');
