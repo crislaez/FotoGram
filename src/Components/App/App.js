@@ -27,19 +27,24 @@ class App extends React.Component{
                 ventanaRegistro:true,  //para mostrar o no el componente VentanaRegistro
                 ventanaPerfiles:false,  //para mostrar o no el boton perfil del componente Nav
                 ventanaSidebar:false,
-                datosParaVentanaComentarios:{}
+                datosParaVentanaComentarios:{},
+                datoUsuarioBuscador:{}
             };
     }
     
-    //esta funcion es la pasamos a Nav->botones y dependiendo que boton del menu demos
-    //pasaremos las props a Section para cargar un componente Articulo 
+    /**
+     * esta funcion es la pasamos a Nav->botones y dependiendo que boton del menu demos
+     * pasaremos las props a Section para cargar un componente Articulo     *
+     */ 
     handleClick = (event) => {
         console.log(event.target.id);
         this.setState({ventanasArticulos:event.target.id})
     }
 
-    //esta funcion es para que apareca la ventana login al dar click en nav->boton login
-    //o desaparezca cuando damos a Section->VentanaLogin->boton atras
+    /**
+     * sta funcion es para que apareca la ventana login al dar click en nav->boton login
+     * o desaparezca cuando damos a Section->VentanaLogin->boton atras
+     */
     funcionLogin = () => {
         if(!this._VLogin){
             this.setState({ventanaLoing:true});            
@@ -50,8 +55,10 @@ class App extends React.Component{
         }
     }
 
-    //esta funcion es para que apareca la ventana Registro all dar click en nav->boton Regisro
-    //o desaparezca cuando damos a Section->VentanaRegistro->boton atras
+    /**
+     * esta funcion es para que apareca la ventana Registro all dar click en nav->boton Regisro
+     * o desaparezca cuando damos a Section->VentanaRegistro->boton atras
+     */
     funcionRegistro = () => {
         if(this._VRegistro){
             this.setState({ventanaRegistro:false});
@@ -112,14 +119,12 @@ class App extends React.Component{
         }
     }
 
-    //esta funcion es para cuando pinchemos en uno de los articulos de el compenente ver todo
-    //en el componente section se cargara el componente VentanaComentarios y le pasamos
-    //el objeto de estado con lo que se escogio
+    /**
+     * esta funcion es para cuando pinchemos en uno de los articulos de el compenente ver todo
+     * en el componente section se cargara el componente VentanaComentarios y le pasamos
+     * el objeto de estado con lo que se escogio
+     */
     funcionVentanaComentarios = (event) => {
-        console.log(event.target);
-        
-        
-
         if(!this._VComentarios){
             let datos = 
             {
@@ -138,6 +143,16 @@ class App extends React.Component{
             this.setState({ventanasArticulos:'bVerTodo'});
             this._VComentarios = false;
         }        
+    }
+
+    /**
+     * funcion para obtener el objeto del usuario que se busca en el aside
+     * guardamos el parametro que recibimos en una variable del estad datoUsuarioBuscador
+     * y se la pasamos al componente section para que este a su vez se la pasemos al 
+     * componente ArticuloBuscarPerfil
+     */
+    funcionBuscadorUsuario = (usuario) => {
+        this.setState({datoUsuarioBuscador:usuario, ventanasArticulos:'bBuscadorPerfil'});
     }
 
     render(){
@@ -166,6 +181,9 @@ class App extends React.Component{
                 cerrarVentanaRegistro={this.cerrarVentanaRegistro}
                 funcionVentanaComentarios={this.funcionVentanaComentarios}
                 datosParaVentanaComentarios={this.state.datosParaVentanaComentarios}
+                funcionBuscadorUsuario={this.funcionBuscadorUsuario}
+                datoUsuarioBuscador={this.state.datoUsuarioBuscador}
+                functionSidebar={this.functionSidebar}
                 ></Section>
                 <Footer></Footer>
             </div>

@@ -2,16 +2,14 @@ import React from 'react'
 
 //CSS
 import './Section.css'
-
 //components
 import ArticuloVerTodo from '../ArticuloVerTodo/ArticuloVerTodo';
 import VentanaLogin from '../VentanaLogin/VentanaLogin';
 import VentanaRegistro from '../VentanaRegistro/VentanaRegistro';
 import VentanaComentarios from '../VentanaComentarios/VentanaComentarios';
+import ArticuloBuscarPerfil from '../ArticuloBuscarPerfil/ArticuloBuscarPerfil';
 import Sidebar from '../Sidebar/Sidebar';
 import Perfil from '../Perfil/Perfil';
-
-//this.props.ventanasArticulos == 'bMenu'
 
 class Section extends React.Component{
 
@@ -47,13 +45,17 @@ class Section extends React.Component{
                 ?
                 <VentanaComentarios datosParaVentanaComentarios={this.props.datosParaVentanaComentarios} funcionVentanaComentarios={this.props.funcionVentanaComentarios}></VentanaComentarios>
                 :
+                this.props.ventanasArticulos === 'bBuscadorPerfil' 
+                ?
+                <ArticuloBuscarPerfil datoUsuarioBuscador={this.props.datoUsuarioBuscador}></ArticuloBuscarPerfil>
+                :
                 <div></div>
             }
 
             {
                 this.props.ventanaSidebar
                 ?
-                <Sidebar widthSidebar= '20%'></Sidebar>
+                <Sidebar widthSidebar= '20%' funcionBuscadorUsuario={this.props.funcionBuscadorUsuario} functionSidebar={this.props.functionSidebar}></Sidebar>
                 :
                 <Sidebar widthSidebar = '0%'></Sidebar>
             }

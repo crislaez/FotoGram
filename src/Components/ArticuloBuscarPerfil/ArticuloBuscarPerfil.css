@@ -1,0 +1,88 @@
+.articleBuscarPerfil{
+    width: 100%;
+    height: 800px;
+    /* z-index: 1; */
+    background: white;
+}
+
+.divBuscarPerfilTitulo{
+    width: 100%;
+    height: 50px;
+    box-shadow: 3px 0px 3px grey;
+    float: left;
+}
+
+.divBuscarPerfilTitulo h2{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10px;
+}
+
+.divContenedorBuscadorPerfilTitulo{
+    width: 100%;
+    height: 750px;
+    overflow-y: scroll;
+    /* background: gray; */
+    float: left;
+}
+
+.divFotoBuscadorPerfil{
+    width: 20%;
+    height: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 3%;
+    margin-top: 2em;
+    box-shadow: 3px 3px 3px grey;
+    float: left;
+}
+
+.divFotoBuscadorPerfil img{
+    width: 100%;
+    height: 300px;
+}
+
+.divDerechaBuscadorPErfil{
+    width: 74%;
+    margin-left: 2%;
+    margin-top: 1.5em;
+    min-height: 700px;
+    /* background: grey; */
+    float: left;
+}
+/*  */
+
+.divContenidoBuscadorPerfil{
+    width: 32%;
+    height: 400px;
+    background: #F7F7F7;
+    border-radius: 3px;
+    margin-left: 1%;
+    margin-top: 10px;
+    float: left;
+}
+
+.divContenidoImagenBusadorPerfil{
+    width: 94%;
+    height: 300px;
+    margin-top: 10px;
+    margin-left: 3%;
+    float: left;
+}
+
+.divContenidoImagenBusadorPerfil img{
+    width: 100%;
+    height: 300px;
+}
+
+.divContenidoParrafo{
+    width: 94%;
+    margin-left: 3%;
+    /* border: 1px solid grey; */
+    margin-top: 1em;
+    float: left;
+}
+
+/* .divContenidoParrafo p{
+
+} */
