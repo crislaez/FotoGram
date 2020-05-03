@@ -19,7 +19,9 @@ class Perfil extends React.Component{
                 array:[],
                 nombre:'',
                 foto:'',
-                ventanaFoto:false
+                ventanaFoto:false,
+                fotoCambio:'',
+                indiceUsuario:''
             };
     }
 
@@ -29,7 +31,7 @@ class Perfil extends React.Component{
             firebase.database().ref(`${localStorage.getItem('indiceUsuario')}`).on('value',snap => {
                 if(this._isMount){
                     console.log(snap.val());
-                    this.setState({array:snap.val(), nombre:snap.val().nombre, foto:snap.val().foto});
+                    this.setState({array:snap.val(), nombre:snap.val().nombre, foto:snap.val().foto, indiceUsuario:localStorage.getItem('indiceUsuario')});
                 }
             })
         }
@@ -66,7 +68,46 @@ class Perfil extends React.Component{
         this._VSubirFoto = false;
     }
 
+    //funcion para el mouseOver para que aparezca el formulario
+    handleMouseOver = (event) => {
+        let formulario = event.target.getElementsByTagName('form')
+        if(formulario[0]){
+            formulario[0].style.display = 'block';
+        }        
+    }
 
+    //funcion para el mouseLeave para que desaparezca el formulatio
+    handleMouseLeave = (event) => {
+        let formulario = event.target.getElementsByTagName('form');  
+        if(formulario[0]){
+            formulario[0].style.display = 'none';     
+        }         
+    }
+
+    handleSUbmit = (event) => {
+        event.preventDefault();
+        if(!this.state.fotoCambio){
+            alert('Seleccione una foto')
+        }
+        else if(!this.state.indiceUsuario){
+            alert('Tienes que estar logueado')
+        }
+        else{
+            // console.log(this.state.fotoCambio);
+            // console.log(this.state.indiceUsuario);
+            let storage = firebase.storage().ref(`/imagenes/${this.state.fotoCambio.name}`);
+            storage.put(this.state.fotoCambio)
+            .then(res => {
+                storage.getDownloadURL()
+                .then(ruta => {
+                    let rutaFoto = ruta
+                    firebase.database().ref(`${localStorage.getItem('indiceUsuario')}/foto/`).set(rutaFoto) 
+                })
+            })
+
+            this.setState({fotoCambio:''})
+        }        
+    }
 
     render(){
         
@@ -86,17 +127,30 @@ class Perfil extends React.Component{
 
         return(
             <article className='articlePerfil'>
+
                 <div className='divTituloUsuario'>
+                
                     <div className='divBotonSubirFoto'>
                         <input type='button' value='SUBIR FOTO' onClick={this.handleClick}></input>
                     </div>
+
                     <div className='divUsuario'>
                         <h3>Bienvenido: {this.state.nombre}</h3>
                     </div>
                     
-                    <div className='divFotoUsuario'>
-                        <img src={this.state.foto} alt={this.state.foto}></img>
+                    <div className='divAparecerForm' onMouseOver={this.handleMouseOver} onMouseLeave={this.handleMouseLeave}>
+
+                        <div className='divFotoUsuario'>
+                            <img src={this.state.foto} alt={this.state.foto}></img>
+                        </div>
+                        
+                        <form className='formCambiarFoto' action='' method='' encType='multipart/form-data' onSubmit={this.handleSUbmit}>
+                            <input type='file' onChange={(params) => {this.setState({fotoCambio:params.target.files[0]})}}></input>
+                            <input type='submit' value='Cambiar foto'></input>
+                        </form>
+
                     </div>
+
                 </div>  
 
                 <div className='divContenedorPerfil'>
