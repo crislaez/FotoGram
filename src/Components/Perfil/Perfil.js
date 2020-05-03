@@ -57,9 +57,8 @@ class Perfil extends React.Component{
 
         if(confirmacion){
             let indiceUsuario = event.target.parentNode.parentNode.dataset.indiceusuario;
-            let indiceContenido = event.target.parentNode.parentNode.dataset.indicecontenido;
-            firebase.database().ref(`${indiceUsuario}/contenido/${indiceContenido}`).remove();
-            // firebase.database().ref(`${event.target.dataset.indice1}/datos/`).child(`${event.target.dataset.indice2}`).remove();
+            let indiceimagen = event.target.parentNode.parentNode.dataset.indiceimagen;
+            firebase.database().ref(`${indiceUsuario}/contenido/${indiceimagen}`).remove();
         }   
     }
 
@@ -113,18 +112,21 @@ class Perfil extends React.Component{
         
         let arrayContenido = [];
         if(this.state.array.contenido){
+            let nombre = this.state.array.nombre
             this.state.array.contenido.forEach((dato,key) => {
-                let contenido = 
+                let contenidoUsuario = 
                     {
                         indicUsuario:localStorage.getItem('indiceUsuario'),
                         indiceContenido:key,
                         imagen:dato.imagen,
-                        mensaje:dato.mensaje
+                        mensaje:dato.mensaje,
+                        nombre:nombre
                     };
-                arrayContenido.push(contenido)             
+                    // console.log(contenidoUsuario)
+                arrayContenido.push(contenidoUsuario)             
             })
         }
-
+        // funcionVentanaComentarios
         return(
             <article className='articlePerfil'>
 
@@ -168,14 +170,14 @@ class Perfil extends React.Component{
                         ?
                         arrayContenido.map((dato, key) => {
                             return(
-                                <div key={key} className='contenedorContenido' data-indiceusuario={dato.indicUsuario} data-indicecontenido={dato.indiceContenido}>
+                                <div key={key} className='contenedorContenido' onClick={this.props.funcionVentanaComentarios} data-indiceusuario={dato.indicUsuario} data-indiceimagen={dato.indiceContenido} data-foto={dato.imagen} data-mensaje={dato.mensaje} data-usuario={dato.nombre}>
                                     <div className='divImage'>
-                                        <img src={dato.imagen} alt={dato.imagen}></img>
+                                        <img src={dato.imagen} alt={dato.imagen} data-indiceusuario={dato.indicUsuario} data-indiceimagen={dato.indiceContenido} data-foto={dato.imagen} data-mensaje={dato.mensaje} data-usuario={dato.nombre}></img>
                                     </div>
-                                    <div className='divMensaje'>
-                                        <p>{dato.mensaje}</p>
+                                    <div className='divMensaje' data-indiceusuario={dato.indicUsuario} data-indiceimagen={dato.indiceContenido} data-foto={dato.imagen} data-mensaje={dato.mensaje} data-usuario={dato.nombre}>
+                                        <p data-indiceusuario={dato.indicUsuario} data-indiceimagen={dato.indiceContenido} data-foto={dato.imagen} data-mensaje={dato.mensaje} data-usuario={dato.nombre}>{dato.mensaje}</p>
                                     </div>
-                                    <div className='divBotonBorrar'>
+                                    <div className='divBotonBorrar' >
                                         <input type='button' value='Borrar' onClick={this.handleClickBorrar}></input>
                                     </div>
                                 </div>

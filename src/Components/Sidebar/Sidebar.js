@@ -22,11 +22,18 @@ class Sidebar extends React.Component{
         }
         else{
             let usuario;
+            let indice;
             firebase.database().ref().on('value',snap => {
                 // console.log(snap.val());
                 snap.val().forEach((dato, key) => {
                     if(dato.nombre === this.state.usuario){
                         usuario = dato;
+                        indice = key
+                        // usuario = 
+                        //     {
+                        //         indice:key,
+                        //         dato:dato
+                        //     };
                     }
                 });
             })            
@@ -34,7 +41,7 @@ class Sidebar extends React.Component{
             if(usuario){
                 // llamamos a la funcion qeu esta en el section para pasarle el usuario buscador
                 const funcionBuscadorUsuario = this.props.funcionBuscadorUsuario;
-                funcionBuscadorUsuario(usuario);
+                funcionBuscadorUsuario(usuario,indice);
 
                 //llamamos a la funcion de app.js para que se cierre el sidebar
                 const functionSidebar = this.props.functionSidebar;

@@ -28,7 +28,8 @@ class App extends React.Component{
                 ventanaPerfiles:false,  //para mostrar o no el boton perfil del componente Nav
                 ventanaSidebar:false,
                 datosParaVentanaComentarios:{},
-                datoUsuarioBuscador:{}
+                datoUsuarioBuscador:{},
+                indiceUsuario:''
             };
     }
     
@@ -125,24 +126,30 @@ class App extends React.Component{
      * el objeto de estado con lo que se escogio
      */
     funcionVentanaComentarios = (event) => {
-        if(!this._VComentarios){
-            let datos = 
-            {
-                indiceusuario:event.target.dataset.indiceusuario,
-                indiceimagen:event.target.dataset.indiceimagen,
-                foto:event.target.dataset.foto,
-                mensaje:event.target.dataset.mensaje,
-                usuario:event.target.dataset.usuario
-            };
-
-            this.setState({datosParaVentanaComentarios:datos});
-            
-            this.setState({ventanasArticulos:'bComentarios'});
-            this._VComentarios = true;
+        
+        if(event.target.value === 'Borrar'){
+            console.log(event.target.value)
         }else{
-            this.setState({ventanasArticulos:'bVerTodo'});
-            this._VComentarios = false;
-        }        
+            if(!this._VComentarios){
+                let datos = 
+                {
+                    indiceusuario:event.target.dataset.indiceusuario,
+                    indiceimagen:event.target.dataset.indiceimagen,
+                    foto:event.target.dataset.foto,
+                    mensaje:event.target.dataset.mensaje,
+                    usuario:event.target.dataset.usuario
+                };
+    
+                this.setState({datosParaVentanaComentarios:datos});
+                
+                this.setState({ventanasArticulos:'bComentarios'});
+                this._VComentarios = true;
+            }else{
+                this.setState({ventanasArticulos:'bVerTodo'});
+                this._VComentarios = false;
+            }     
+        }
+           
     }
 
     /**
@@ -151,8 +158,9 @@ class App extends React.Component{
      * y se la pasamos al componente section para que este a su vez se la pasemos al 
      * componente ArticuloBuscarPerfil
      */
-    funcionBuscadorUsuario = (usuario) => {
-        this.setState({datoUsuarioBuscador:usuario, ventanasArticulos:'bBuscadorPerfil'});
+    funcionBuscadorUsuario = (usuario, indice) => {
+        console.log(indice)
+        this.setState({datoUsuarioBuscador:usuario, ventanasArticulos:'bBuscadorPerfil',indiceUsuario:indice});
     }
 
     render(){
@@ -183,6 +191,7 @@ class App extends React.Component{
                 datosParaVentanaComentarios={this.state.datosParaVentanaComentarios}
                 funcionBuscadorUsuario={this.funcionBuscadorUsuario}
                 datoUsuarioBuscador={this.state.datoUsuarioBuscador}
+                indiceUsuario={this.state.indiceUsuario}
                 functionSidebar={this.functionSidebar}
                 ></Section>
                 <Footer></Footer>

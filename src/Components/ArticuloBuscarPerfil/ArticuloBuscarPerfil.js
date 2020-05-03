@@ -12,13 +12,14 @@ class ArticuloBuscarPerfil extends React.Component{
         super(props);
         this.state = 
             {
-                usuario:''
+                usuario:'',
+                indice:''
             }
     }
 
     componentDidMount(){
         this._isMountd = true;
-        this.setState({usuario:this.props.datoUsuarioBuscador});
+        this.setState({usuario:this.props.datoUsuarioBuscador,indice:this.props.indiceUsuario});
     }
     
     componentWillUnmount(){
@@ -28,7 +29,7 @@ class ArticuloBuscarPerfil extends React.Component{
 
     componentDidUpdate(prevProps){
         if(this.props.datoUsuarioBuscador !== prevProps.datoUsuarioBuscador){
-            this.setState({usuario:this.props.datoUsuarioBuscador})
+            this.setState({usuario:this.props.datoUsuarioBuscador,indice:this.props.indiceUsuario});
         }  
     }
     
@@ -38,15 +39,17 @@ class ArticuloBuscarPerfil extends React.Component{
         let arrayAuxuliar = [];
 
         if(this.state.usuario.contenido){
+            let nombre = this.state.usuario.nombre;
             this.state.usuario.contenido.forEach( (dato, key) => {
                 let contniodoArray = 
                     {
                         indice:key,
                         imagen: dato.imagen,
-                        mensaje:dato.mensaje
+                        mensaje:dato.mensaje,
+                        nombre:nombre
                     };
                     arrayAuxuliar.push(contniodoArray);
-                    console.log(contniodoArray)
+                    // console.log(contniodoArray)
             });
         }
 
@@ -70,12 +73,12 @@ class ArticuloBuscarPerfil extends React.Component{
                         ?
                         arrayAuxuliar.map( (dato, key) => {
                             return(
-                                <div key={key} className='divContenidoBuscadorPerfil'>
+                                <div key={key} className='divContenidoBuscadorPerfil' onClick={this.props.funcionVentanaComentarios} data-indiceusuario={this.state.indice} data-indiceimagen={dato.indice} data-foto={dato.imagen} data-mensaje={dato.mensaje} data-usuario={dato.nombre}>
                                     <div className='divContenidoImagenBusadorPerfil'>
-                                        <img src={dato.imagen} alt={dato.imagen}></img>
+                                        <img src={dato.imagen} alt={dato.imagen} data-indiceusuario={this.state.indice} data-indiceimagen={dato.indice} data-foto={dato.imagen} data-mensaje={dato.mensaje} data-usuario={dato.nombre}></img>
                                     </div>
                                     <div className='divContenidoParrafo'>
-                                        <p>{dato.mensaje}</p>
+                                        <p data-indiceusuario={this.state.indice} data-indiceimagen={dato.indice} data-foto={dato.imagen} data-mensaje={dato.mensaje} data-usuario={dato.nombre}>{dato.mensaje}</p>
                                     </div>
                                 </div>
                             )

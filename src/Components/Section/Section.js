@@ -39,7 +39,7 @@ class Section extends React.Component{
                 :
                 this.props.ventanasArticulos === 'bPerfil'
                 ?
-                <Perfil></Perfil>
+                <Perfil funcionVentanaComentarios={this.props.funcionVentanaComentarios}></Perfil>
                 :
                 this.props.ventanasArticulos === 'bComentarios'
                 ?
@@ -47,7 +47,7 @@ class Section extends React.Component{
                 :
                 this.props.ventanasArticulos === 'bBuscadorPerfil' 
                 ?
-                <ArticuloBuscarPerfil datoUsuarioBuscador={this.props.datoUsuarioBuscador}></ArticuloBuscarPerfil>
+                <ArticuloBuscarPerfil datoUsuarioBuscador={this.props.datoUsuarioBuscador} indiceUsuario={this.props.indiceUsuario} funcionVentanaComentarios={this.props.funcionVentanaComentarios}></ArticuloBuscarPerfil>
                 :
                 <div></div>
             }
