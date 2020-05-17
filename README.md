@@ -1,6 +1,6 @@
 ## (front-end) FOTOGRAM
 
-FOTOGRAM es una red social de subir foto.
+FOTOGRAM es una red social de para subir foto.
 
 <img src="https://github.com/crislaez/FotoGram/blob/master/src/img/foto_proyecto.PNG" />
 <hr>
@@ -10,7 +10,7 @@ FOTOGRAM es una red social de subir foto.
 
 Una red social donde se pueden subir fotos, comentarlos, ver los perfiles de los usuarios.... (back-end hecho con firebase)
  
-### Donde puedne recibir ayuda los usuarios con el proyecto
+### Donde pueden recibir ayuda los usuarios con el proyecto
  
 Escribiendome a mi correo crislaez30@gmail.com
 
