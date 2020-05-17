@@ -2,9 +2,9 @@
 
 FOTOGRAM es una red social de subir foto
 
-<img src="https://github.com/crislaez/Fornt_End_Senvix/blob/master/src/img/foto_proyecto.PNG" />
+<img src="https://github.com/crislaez/FotoGram/blob/master/src/img/foto_proyecto.PNG" />
 <hr>
-<img src="https://github.com/crislaez/Fornt_End_Senvix/blob/master/src/img/foto_proyecto_2.PNG" />
+<img src="https://github.com/crislaez/FotoGram/blob/master/src/img/foto_proyecto_2.PNG" />
 
 ### Que hace el proyecto
 
